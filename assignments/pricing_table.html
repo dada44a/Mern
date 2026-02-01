@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pricing</title>
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background: #f5f7fb;
+    color: #444;
+  }
+
+  .pricing {
+    max-width: 1200px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .pricing h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .pricing p {
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    font-size: 14px;
+  }
+
+  .cards {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background: #fff;
+    width: 260px;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  .card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #555;
+  }
+
+  .price {
+    font-size: 34px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #222;
+  }
+
+  .price span {
+    font-size: 14px;
+    color: #888;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .features li {
+    margin-bottom: 12px;
+  }
+
+  .features li::before {
+    content: "✔ ";
+    color: #22c55e;
+    font-weight: bold;
+  }
+
+  .read {
+    font-size: 13px;
+    color: #6366f1;
+    text-decoration: none;
+  }
+
+  .btn {
+    display: block;
+    margin-top: 25px;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+  }
+
+  /* Highlighted card */
+  .featured {
+    border: 2px solid #6366f1;
+    transform: translateY(-15px);
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6366f1;
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 11px;
+    border-radius: 20px;
+  }
+
+  .featured .btn {
+    background: #6366f1;
+    color: #fff;
+    border: none;
+  }
+</style>
+</head>
+
+<body>
+
+<section class="pricing">
+  <h1>Pricing</h1>
+  <p>
+    It is a long established fact that a reader will be distracted by the readable
+    content of a page when looking at its layout.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Basic</h3>
+      <div class="price">$99.99 <span>/Year</span></div>
+
+      <ul class="features">
+        <li>Detail Page</li>
+        <li>Editing and Reviews</li>
+        <li>Custom</li>
+        <li>UI</li>
+        <li>Support</li>
+      </ul>
+
+      <a class="read" href="#">Read More</a>
+      <a class="btn" href="#">Start Today</a>
+    </div>
+
+    <div class="card">
+      <h3>Silver</h3>
+      <div class="price">$199.99 <span>/Year</span></div>
+
+      <ul class="features">
+        <li>Detail Page</li>
+        <li>Editing and Reviews</li>
+        <li>Custom</li>
+        <li>UI</li>
+        <li>Additional Plans</li>
+      </ul>
+
+      <a class="read" href="#">Read More</a>
+      <a class="btn" href="#">Start Today</a>
+    </div>
+
+    <div class="card featured">
+      <div class="badge">Popular</div>
+      <h3>Gold</h3>
+      <div class="price">$349.99 <span>/Year</span></div>
+
+      <ul class="features">
+        <li>Detail Page</li>
+        <li>Editing and Reviews</li>
+        <li>Custom</li>
+        <li>UI</li>
+        <li>Support</li>
+        <li>Additional Plans</li>
+      </ul>
+
+      <a class="read" href="#">Read More</a>
+      <a class="btn" href="#">Start Today</a>
+    </div>
+
+    <div class="card">
+      <h3>Diamond</h3>
+      <div class="price">$544.99 <span>/Year</span></div>
+
+      <ul class="features">
+        <li>Detail Page</li>
+        <li>Editing and Reviews</li>
+        <li>Custom</li>
+        <li>UI</li>
+        <li>Additional Plans</li>
+      </ul>
+
+      <a class="read" href="#">Read More</a>
+      <a class="btn" href="#">Start Today</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>MegaMart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f6f9fc;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-bar {
+            background: #eaf4ff;
+            padding: 6px 40px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+        }
+
+
+        header {
+            background: #fff;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1677ff;
+        }
+
+        .search {
+            flex: 1;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+
+        .categories {
+            background: #fff;
+            padding: 10px 40px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .categories span {
+            cursor: pointer;
+            color: #444;
+        }
+
+        /* HERO */
+        .hero {
+            margin: 25px 40px;
+            background: #1f2a44;
+            color: #fff;
+            border-radius: 14px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        .hero p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .hero img {
+            width: 260px;
+        }
+
+        /* SECTION */
+        .section {
+            margin: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .product h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #1677ff;
+            font-size: 14px;
+        }
+
+        .old {
+            font-size: 12px;
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .save {
+            font-size: 12px;
+            color: green;
+            margin-top: 4px;
+        }
+
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .icon-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+        }
+
+        .icon-box img {
+            width: 40px;
+        }
+
+        .icon-text {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        /* BRAND DEALS */
+        .brands {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .brand {
+            border-radius: 14px;
+            padding: 20px;
+            color: #fff;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .iphone { background: #333; }
+        .realme { background: #ffdf7e; color: #000; }
+        .xiaomi { background: #ffefe5; color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div>Welcome to worldwide Megamart!</div>
+        <div>Deliver to 423651 | Track your order | All Offers</div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">MegaMart</div>
+
+        <div class="search">
+            <input type="text" placeholder="Search essentials, groceries and more..." />
+        </div>
+
+        <div class="header-actions">
+            <span>Sign Up / Sign In</span>
+            <span>Cart</span>
+        </div>
+    </header>
+
+    <!-- CATEGORY NAV -->
+    <div class="categories">
+        <span>Groceries</span>
+        <span>Premium Fruits</span>
+        <span>Home & Kitchen</span>
+        <span>Fashion</span>
+        <span>Electronics</span>
+        <span>Beauty</span>
+        <span>Home Improvement</span>
+        <span>Sports</span>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div>
+            <p>Best Deal Online on smart watches</p>
+            <h1>SMART WEARABLE.</h1>
+            <p>Up to 80% OFF</p>
+        </div>
+
+        <img alt="watch">
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="section">
+        <div class="section-header">
+            <span>Grab the best deal on Smartphones</span>
+            <span>View All</span>
+        </div>
+
+        <div class="products">
+            <div class="product">
+                <img />
+                <h4>Galaxy S22 Ultra</h4>
+                <div class="price">₹32999</div>
+                <div class="old">₹74999</div>
+                <div class="save">Save ₹42000</div>
+            </div>
+
+            <div class="product">
+                <img />
+                <h4>Galaxy M13</h4>
+                <div class="price">₹10499</div>
+                <div class="old">₹14999</div>
+                <div class="save">Save ₹4500</div>
+            </div>
+
+            <div class="product">
+                <img />
+                <h4>Galaxy M33 5G</h4>
+                <div class="price">₹16999</div>
+                <div class="old">₹24999</div>
+                <div class="save">Save ₹8000</div>
+            </div>
+
+            <div class="product">
+                <img />
+                <h4>Galaxy M53</h4>
+                <div class="price">₹31999</div>
+                <div class="old">₹40999</div>
+                <div class="save">Save ₹9000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ICON CATEGORIES -->
+    <div class="section">
+        <div class="section-header">
+            <span>Shop From Top Categories</span>
+            <span>View All</span>
+        </div>
+
+        <div class="icon-grid">
+            <div>
+                <div class="icon-box"><img></div>
+                <div class="icon-text">Mobile</div>
+            </div>
+
+            <div>
+                <div class="icon-box"><img></div>
+                <div class="icon-text">Cosmetics</div>
+            </div>
+
+            <div>
+                <div class="icon-box"><img></div>
+                <div class="icon-text">Electronics</div>
+            </div>
+
+            <div>
+                <div class="icon-box"><img></div>
+                <div class="icon-text">Furniture</div>
+            </div>
+
+            <div>
+                <div class="icon-box"><img></div>
+                <div class="icon-text">Watches</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRANDS -->
+    <div class="section">
+        <div class="section-header">
+            <span>Top Electronics Brands</span>
+            <span>View All</span>
+        </div>
+
+        <div class="brands">
+            <div class="brand iphone">iPhone<br>Up to 80% OFF</div>
+            <div class="brand realme">realme<br>Up to 80% OFF</div>
+            <div class="brand xiaomi">Xiaomi<br>Up to 80% OFF</div>
+        </div>
+    </div>
+
+</body>
+</html>

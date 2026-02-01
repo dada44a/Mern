@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>DevFolio</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#dashboard" class="nav-link active"><i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span></a></li>
+            <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> <span>About Me</span></a></li>
+            <li><a href="#assignments" class="nav-link"><i class="fa-solid fa-code"></i> <span>Assignments</span></a>
+            </li>
+            <li><a href="#skills" class="nav-link"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Skills</span></a></li>
+            <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header>
+            <div class="header-greeting">
+                <h1>Hello, Anish 👋</h1>
+                <p>College Student / Web Developer</p>
+            </div>
+            <div class="user-profile">
+                <!-- Simple notification icon -->
+                <i class="fa-regular fa-bell" style="color: var(--text-secondary); cursor: pointer;"></i>
+                <div class="avatar">A</div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+
+            <!-- Dashboard Stats -->
+            <section id="dashboard" class="stats-grid">
+                <!-- About Snap -->
+                <div class="card stat-card">
+                    <div class="stat-info">
+                        <h3>Experience</h3>
+                        <div class="value">2 Years</div>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Frontend Focus
+                        </p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                </div>
+
+                <!-- Projects Snap -->
+                <div class="card stat-card">
+                    <div class="stat-info">
+                        <h3>Total Assignments</h3>
+                        <div class="value">8</div>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Completed</p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                </div>
+
+                <!-- Skills Snap -->
+                <div class="card stat-card">
+                    <div class="stat-info">
+                        <h3>Key Skill</h3>
+                        <div class="value">React</div>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">& Tailwind</p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fa-brands fa-react"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Table -->
+            <section id="assignments" class="detail-section" style="margin-top: 1rem;">
+                <div class="section-header">
+                    <h2 class="section-title">Assignments</h2>
+                    <!-- <a href="#" class="btn-sm">View All</a> -->
+                </div>
+
+                <div class="projects-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Assignment Name</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 500;">Landing Page</td>
+                                <td>Web Layout</td>
+                                <td><a href="assignments/landingpage.html" class="btn-sm" target="_blank">View
+                                        Assignment</a></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Wikipedia Clone</td>
+                                <td>Clone / Structure</td>
+                                <td><a href="assignments/wikipidea.html" class="btn-sm" target="_blank">View
+                                        Assignment</a></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Pricing Table</td>
+                                <td>CSS Component</td>
+                                <td><a href="assignments/pricing_table.html" class="btn-sm" target="_blank">View
+                                        Assignment</a></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Login Page</td>
+                                <td>Form / Authentication</td>
+                                <td><a href="assignments/loginpage.html" class="btn-sm" target="_blank">View
+                                        Assignment</a></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">CV / Resume</td>
+                                <td>Forms / Structure</td>
+                                <td><a href="assignments/cv.html" class="btn-sm" target="_blank">View Assignment</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Navigation Bar</td>
+                                <td>Component</td>
+                                <td><a href="assignments/navbar.html" class="btn-sm" target="_blank">View Assignment</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Table Assignment</td>
+                                <td>HTML Tables</td>
+                                <td><a href="assignments/TableAssignment.html" class="btn-sm" target="_blank">View
+                                        Assignment</a></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Home Page</td>
+                                <td>General</td>
+                                <td><a href="assignments/home.html" class="btn-sm" target="_blank">View Assignment</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="detail-section">
+                <div class="card">
+                    <div class="section-header">
+                        <h2 class="section-title">About Me</h2>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        I am a passionate computer science student with a strong interest in web development.
+                        I love building clean, user-friendly interfaces and solving complex problems with code.
+                        Currently specialized in MERN stack development and enjoying the process of learning new
+                        technologies.
+                    </p>
+                    <p style="color: var(--text-secondary);">
+                        When I'm not coding, you can find me reading tech blogs, gaming, or exploring new coffee shops
+                        in the city.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="detail-section">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-tag"><i class="fa-brands fa-html5" style="color: #e34f26; margin-right: 5px;"></i>
+                        HTML5</div>
+                    <div class="skill-tag"><i class="fa-brands fa-css3-alt"
+                            style="color: #1572b6; margin-right: 5px;"></i> CSS3</div>
+                    <div class="skill-tag"><i class="fa-brands fa-js" style="color: #f7df1e; margin-right: 5px;"></i>
+                        JavaScript</div>
+                    <div class="skill-tag"><i class="fa-brands fa-react" style="color: #61dafb; margin-right: 5px;"></i>
+                        React</div>
+                    <div class="skill-tag"><i class="fa-brands fa-node" style="color: #339933; margin-right: 5px;"></i>
+                        Node.js</div>
+                    <div class="skill-tag"><i class="fa-solid fa-database"
+                            style="color: #4db33d; margin-right: 5px;"></i> MongoDB</div>
+                    <div class="skill-tag"><i class="fa-brands fa-git-alt"
+                            style="color: #f05032; margin-right: 5px;"></i> Git</div>
+                    <div class="skill-tag"><i class="fa-solid fa-code" style="color: #007acc; margin-right: 5px;"></i>
+                        VS Code</div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="detail-section" style="margin-bottom: 3rem;">
+                <div class="card">
+                    <div class="section-header">
+                        <h2 class="section-title">Get In Touch</h2>
+                    </div>
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                        <a href="#"
+                            style="text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                            <div class="stat-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <span>anish@example.com</span>
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                            <div class="stat-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </div>
+                            <span>linkedin.com/in/anish</span>
+                        </a>
+                        <a href="#"
+                            style="text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+                            <div class="stat-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <span>github.com/anish</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+
+</html>
