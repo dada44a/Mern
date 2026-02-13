@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Square Circuit</title>
+
+<style>
+
+body {
+  background-color: white;
+}
+
+.box {
+  width: 400px;
+  height: 200px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position: absolute;
+  animation-name: moveSquare;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(4);
+}
+
+.square1 { animation-delay: 0s; }
+.square2 { animation-delay: 1s; }
+.square3 { animation-delay: 2s; }
+.square4 { animation-delay: 3s; }
+
+@keyframes moveSquare {
+
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+
+  25% {
+    top: 0px;
+    left: 360px;
+  }
+
+  50% {
+    top: 160px;
+    left: 360px;
+  }
+
+  75% {
+    top: 160px;
+    left: 0px;
+  }
+
+  100% {
+    top: 0px;
+    left: 0px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <div class="square square1"></div>
+  <div class="square square2"></div>
+  <div class="square square3"></div>
+  <div class="square square4"></div>
+</div>
+
+</body>
+</html>

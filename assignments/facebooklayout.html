@@ -1,238 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Social Media Layout (Mock)</title>
+<meta charset="UTF-8">
+<title>Facebook UI Clone</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+body{
+    background:#f0f2f5;
+}
 
-        body {
-            background: #f0f2f5;
-        }
 
-        .navbar {
-            height: 60px;
-            background: #24292f;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            gap: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+.navbar{
+    height:56px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+}
 
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-        .navbar input {
-            flex: 1;
-            padding: 8px 12px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-        }
+.logo{
+    width:40px;
+    height:40px;
+    background:#1877f2;
+    color:#fff;
+    font-weight:bold;
+    font-size:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+}
 
-        .nav-icons span {
-            margin-left: 15px;
-            cursor: pointer;
-        }
+.search{
+    background:#f0f2f5;
+    border-radius:20px;
+    padding:8px 15px;
+    border:none;
+    outline:none;
+    width:220px;
+}
 
-        .container {
-            display: grid;
-            grid-template-columns: 250px 1fr 280px;
-            gap: 20px;
-            padding: 20px;
-        }
+.nav-center{
+    display:flex;
+    gap:50px;
+}
 
-        .sidebar {
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            height: fit-content;
-            position: sticky;
-            top: 70px;
-        }
+.nav-icon{
+    font-size:22px;
+    cursor:pointer;
+    color:#65676b;
+}
 
-        .sidebar h3 {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
+.nav-icon.active{
+    color:#1877f2;
+    border-bottom:3px solid #1877f2;
+    padding-bottom:10px;
+}
 
-        .sidebar ul {
-            list-style: none;
-        }
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
 
-        .sidebar ul li {
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            background: #f5f6f7;
-        }
+.profile-pic{
+    width:35px;
+    height:35px;
+    background:#ccc;
+    border-radius:50%;
+}
 
-        .sidebar ul li:hover {
-            background: #e4e6eb;
-        }
+/* ================= LAYOUT ================= */
 
-        .feed {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.container{
+    display:grid;
+    grid-template-columns: 260px 1fr 300px;
+    gap:20px;
+    padding:20px 40px;
+}
 
-        .stories {
-            display: flex;
-            gap: 10px;
-        }
+/* ================= LEFT SIDEBAR ================= */
 
-        .story {
-            background: #6c63ff;
-            color: #fff;
-            width: 120px;
-            height: 160px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
+.sidebar{
+    background:transparent;
+}
 
-        .create-post {
-            background: #fff;
-            padding: 15px;
-            border-radius: 10px;
-        }
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
 
-        .create-post input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
+.menu-item:hover{
+    background:#e4e6eb;
+}
 
-        .post {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 15px;
-        }
+.menu-icon{
+    width:30px;
+    height:30px;
+    background:#d8dadf;
+    border-radius:50%;
+}
 
-        .post-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+/* ================= FEED ================= */
 
-        .post-image {
-            background: #d1d5db;
-            height: 250px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            margin-top: 10px;
-        }
+.feed{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
 
-        .contact {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px;
-            border-radius: 8px;
-            background: #f5f6f7;
-            margin-bottom: 8px;
-        }
+/* Stories */
 
-        .avatar {
-            width: 35px;
-            height: 35px;
-            background: #6c63ff;
-            border-radius: 50%;
-        }
-    </style>
+.stories{
+    display:flex;
+    gap:10px;
+}
 
+.story{
+    width:110px;
+    height:190px;
+    border-radius:12px;
+    background:#ccc;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.story::after{
+    content:"";
+    position:absolute;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:3px solid #1877f2;
+    top:10px;
+    left:10px;
+    background:#fff;
+}
+
+/* Create Post */
+
+.create-post{
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+}
+
+.create-post input{
+    width:100%;
+    padding:10px;
+    border-radius:20px;
+    border:1px solid #ddd;
+    outline:none;
+}
+
+/* Post */
+
+.post{
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+}
+
+
+.post-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.post-avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#ccc;
+}
+
+.post-image{
+    height:300px;
+    background:#d8dadf;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+/* ================= RIGHT SIDEBAR ================= */
+
+.right-box{
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+    margin-bottom:15px;
+}
+
+.contact{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.contact:hover{
+    background:#e4e6eb;
+}
+
+.contact .avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#ccc;
+}
+</style>
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="logo">Facebook</div>
-        <input type="text" placeholder="Search posts, people..." />
-        <div class="nav-icons">
-     
-        </div>
+<!-- ================= NAVBAR ================= -->
+
+<div class="navbar">
+    <div class="nav-left">
+        <div class="logo">f</div>
+        <input class="search" type="text" placeholder="Search Facebook">
     </div>
 
-    <div class="container">
+    <div class="nav-center">
+        <div class="nav-icon active">🏠</div>
+        <div class="nav-icon">🎥</div>
+        <div class="nav-icon">🛒</div>
+        <div class="nav-icon">👥</div>
+        <div class="nav-icon">🎮</div>
+    </div>
 
-        <div class="sidebar">
-            <h3>Menu</h3>
-            <ul>
-                <li>Dashboard</li>
-                <li>Groups</li>
-                <li>Events</li>
-                <li>Saved</li>
-                <li>Memories</li>
-            </ul>
+    <div class="nav-right">
+        <div class="profile-pic"></div>
+    </div>
+</div>
+
+<!-- ================= MAIN CONTAINER ================= -->
+
+<div class="container">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="menu-item"><div class="menu-icon"></div> John Williams</div>
+        <div class="menu-item"><div class="menu-icon"></div> Friends</div>
+        <div class="menu-item"><div class="menu-icon"></div> Groups</div>
+        <div class="menu-item"><div class="menu-icon"></div> Marketplace</div>
+        <div class="menu-item"><div class="menu-icon"></div> Watch</div>
+        <div class="menu-item"><div class="menu-icon"></div> Memories</div>
+    </div>
+
+    <!-- FEED -->
+    <div class="feed">
+
+        <div class="stories">
+            <div class="story"></div>
+            <div class="story"></div>
+            <div class="story"></div>
+            <div class="story"></div>
+            <div class="story"></div>
         </div>
 
-        <div class="feed">
-
-            <div class="stories">
-                <div class="story">Story 1</div>
-                <div class="story">Story 2</div>
-                <div class="story">Story 3</div>
-                <div class="story">Story 4</div>
-            </div>
-
-            <div class="create-post">
-                <input type="text" placeholder="What's on your mind?" />
-            </div>
-
-            <div class="post">
-                <div class="post-header">Alex Johnson</div>
-                <p>Having a great day building layouts </p>
-                <div class="post-image">Image / Media</div>
-            </div>
-            <div class="post">
-                <div class="post-header">Alex Johnson</div>
-                <p>Having a great day building layouts </p>
-                <div class="post-image">Image / Media</div>
-            </div>
-
-
+        <div class="create-post">
+            <input type="text" placeholder="What's on your mind, John?">
         </div>
 
-        <div class="sidebar">
-            <h3>Contacts</h3>
-            <div class="contact">
-                <div class="avatar"></div>
-                <span>Sam</span>
+        <div class="post">
+            <div class="post-header">
+                <div class="post-avatar"></div>
+                <div><strong>Alex Johnson</strong><br><small>2 hrs</small></div>
             </div>
-            <div class="contact">
-                <div class="avatar"></div>
-                <span>Riya</span>
-            </div>
-            <div class="contact">
-                <div class="avatar"></div>
-                <span>John</span>
-            </div>
-            <div class="contact">
-                <div class="avatar"></div>
-                <span>Ana</span>
-            </div>
+            <p>Best fireworks show I've ever seen!</p>
+            <div class="post-image"></div>
         </div>
 
     </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div>
+        <div class="right-box">
+            <strong>Sponsored</strong>
+            <div style="height:120px;background:#d8dadf;border-radius:8px;margin-top:10px;"></div>
+        </div>
+
+        <div class="right-box">
+            <strong>Contacts</strong>
+            <div class="contact"><div class="avatar"></div> Anna</div>
+            <div class="contact"><div class="avatar"></div> Sam</div>
+            <div class="contact"><div class="avatar"></div> Riya</div>
+            <div class="contact"><div class="avatar"></div> John</div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
