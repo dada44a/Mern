@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MarketPro - Grocery Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+        svg {
+            font-family: "Poppins", sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg text {
+            animation: stroke 5s infinite alternate;
+            stroke-width: 2;
+            stroke: #000000;
+            font-size: 100px;
+        }
+
+        @keyframes stroke {
+            0% {
+                fill: rgba(0, 0, 0, 0);
+                stroke: rgba(0, 0, 0, 1);
+                stroke-dashoffset: 25%;
+                stroke-dasharray: 0 50%;
+                stroke-width: 2;
+            }
+
+            70% {
+                fill: rgba(0, 0, 0, 0);
+                stroke: rgba(0, 0, 0, 1);
+            }
+
+            80% {
+                fill: rgba(0, 0, 0, 0);
+                stroke: rgba(0, 0, 0, 1);
+                stroke-width: 3;
+            }
+
+            100% {
+                fill: rgba(0, 0, 0, 1);
+                stroke: rgba(0, 0, 0, 0);
+                stroke-dashoffset: -25%;
+                stroke-dasharray: 50% 0;
+                stroke-width: 0;
+            }
+        }
+
+        .wrapper {
+            background-color: #FFFFFF;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-50 text-gray-700">
+
+   <div class="wrapper h-screen " id="loading">
+    <svg>
+        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+            Loading
+        </text>
+    </svg>
+</div>
+
+    <main class="hidden" id="main">
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-green-600">MarketPro</h1>
+
+                <div class="flex-1 mx-6">
+                    <input type="text" placeholder="Search products..."
+                        class="w-full border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="hover:text-green-600">Account</a>
+                    <a href="#" class="relative">
+                        Cart
+                        <span
+                            class="absolute -top-2 -right-3 bg-green-600 text-white text-xs px-2 py-0.5 rounded-full">2</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section class="bg-green-100">
+            <div class="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 items-center gap-10">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Daily Grocery Order and Get Express Delivery</h2>
+                    <p class="mb-6 text-gray-600">Fresh vegetables, fruits & daily essentials delivered fast.</p>
+                    <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="max-w-7xl mx-auto px-4 py-12">
+            <h3 class="text-2xl font-semibold mb-6">Categories</h3>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-6 text-center">
+                <div class="bg-white p-4 rounded-xl shadow hover:shadow-md">
+                    <img src="" class="h-12 mx-auto mb-2" />
+                    <p>Vegetables</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow hover:shadow-md">
+                    <img src="" class="h-12 mx-auto mb-2" />
+                    <p>Fruits</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow hover:shadow-md">
+                    <img src="" class="h-12 mx-auto mb-2" />
+                    <p>Bakery</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow hover:shadow-md">
+                    <img src="" class="h-12 mx-auto mb-2" />
+                    <p>Dairy</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow hover:shadow-md">
+                    <img src="" class="h-12 mx-auto mb-2" />
+                    <p>Drinks</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow hover:shadow-md">
+                    <img src="" class="h-12 mx-auto mb-2" />
+                    <p>Snacks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLASH SALES -->
+        <section class="bg-white py-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-2xl font-semibold mb-6">Flash Sales Today</h3>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Product Card -->
+                    <div class="border rounded-xl p-4 hover:shadow-lg transition">
+                        <img src=""
+                            class="h-32 mx-auto object-contain mb-4">
+                        <h4 class="font-medium">Fresh Apples</h4>
+                        <p class="text-green-600 font-bold mt-2">$4.99</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <div class="border rounded-xl p-4 hover:shadow-lg transition">
+                        <img src=""
+                            class="h-32 mx-auto object-contain mb-4">
+                        <h4 class="font-medium">Organic Milk</h4>
+                        <p class="text-green-600 font-bold mt-2">$2.49</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <div class="border rounded-xl p-4 hover:shadow-lg transition">
+                        <img src=""
+                            class="h-32 mx-auto object-contain mb-4">
+                        <h4 class="font-medium">Fresh Carrots</h4>
+                        <p class="text-green-600 font-bold mt-2">$1.99</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <div class="border rounded-xl p-4 hover:shadow-lg transition">
+                        <img src=""
+                            class="h-32 mx-auto object-contain mb-4">
+                        <h4 class="font-medium">Brown Bread</h4>
+                        <p class="text-green-600 font-bold mt-2">$3.49</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMO BANNERS -->
+        <section class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-6">
+            <div class="bg-green-50 p-8 rounded-xl flex items-center justify-between">
+                <div>
+                    <h4 class="text-xl font-bold mb-2">$5 off your first order</h4>
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-full">Shop Now</button>
+                </div>
+                <img src="" class="h-24 rounded-lg">
+            </div>
+
+            <div class="bg-yellow-50 p-8 rounded-xl flex items-center justify-between">
+                <div>
+                    <h4 class="text-xl font-bold mb-2">Fresh Vegetables Sale</h4>
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-full">Explore</button>
+                </div>
+                <img src="" class="h-24 rounded-lg">
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="bg-gray-100 py-12">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-2xl font-semibold mb-4">Stay home & get your daily needs</h3>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <input type="email" placeholder="Enter your email"
+                        class="px-4 py-3 rounded-full border w-full md:w-96 focus:ring-2 focus:ring-green-500" />
+                    <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-white py-10 border-t">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-3 text-green-600">MarketPro</h4>
+                    <p class="text-sm text-gray-500">Your daily grocery partner with fast delivery.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Information</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-green-600">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-600">Contact</a></li>
+                        <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Customer Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-green-600">FAQ</a></li>
+                        <li><a href="#" class="hover:text-green-600">Shipping</a></li>
+                        <li><a href="#" class="hover:text-green-600">Returns</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">Follow Us</h4>
+                    <p class="text-sm text-gray-500">Facebook · Instagram · Twitter</p>
+                </div>
+            </div>
+
+            <div class="text-center text-sm text-gray-400 mt-8">
+                © 2026 MarketPro. All rights reserved.
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const main = document.getElementById("main")
+        const loading = document.getElementById('loading')
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loading.classList.add('hidden')
+                main.classList.remove('hidden ')
+            }, 10000)
+        })
+    </script>
+</body>
+
+</html>

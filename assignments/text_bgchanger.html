@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Color Changer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
+        }
+
+        input::placeholder {
+            transition: color 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-8 bg-white text-black">
+    <div class="w-full max-w-lg transition-all duration-700">
+        <div class="relative group">
+            <span id="hash"
+                class="absolute left-0 bottom-4 text-5xl font-extralight text-gray-200 transition-colors duration-500">#</span>
+            <input type="text" id="hexInput" maxlength="6" placeholder="FFFFFF"
+                class="w-full bg-transparent border-b border-gray-100 py-4 pl-10 text-7xl font-light focus:outline-none focus:border-current transition-all uppercase tracking-tighter placeholder:text-gray-100"
+                spellcheck="false" autocomplete="off" autofocus>
+        </div>
+        <p id="instruction"
+            class="mt-10 text-[10px] tracking-[0.3em] text-gray-300 uppercase font-medium transition-colors duration-500">
+            Press Enter to apply
+        </p>
+    </div>
+
+    <script>
+        const input = document.getElementById('hexInput');
+        const body = document.body;
+        const hash = document.getElementById('hash');
+        const instruction = document.getElementById('instruction');
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                let value = input.value.trim();
+                if (value.startsWith('#')) value = value.slice(1);
+
+                const isHex = /^[0-9A-Fa-f]{3}$|^[0-9A-Fa-f]{6}$/.test(value);
+
+                if (isHex) {
+                    const color = '#' + value;
+                    body.style.backgroundColor = color;
+
+                    // Calculate brightness for contrast
+                    const r = parseInt(value.length === 3 ? value[0] + value[0] : value.slice(0, 2), 16);
+                    const g = parseInt(value.length === 3 ? value[1] + value[1] : value.slice(2, 4), 16);
+                    const b = parseInt(value.length === 3 ? value[2] + value[2] : value.slice(4, 6), 16);
+                    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+                    // Update UI colors based on brightness
+                    if (brightness < 160) {
+                        body.classList.remove('text-black');
+                        body.classList.add('text-white');
+                        hash.classList.replace('text-gray-200', 'text-white/20');
+                        instruction.classList.replace('text-gray-300', 'text-white/30');
+                        input.classList.replace('border-gray-100', 'border-white/10');
+                        input.classList.replace('placeholder:text-gray-100', 'placeholder:text-white/10');
+                    } else {
+                        body.classList.remove('text-white');
+                        body.classList.add('text-black');
+                        hash.classList.replace('text-white/20', 'text-gray-200');
+                        instruction.classList.replace('text-white/30', 'text-gray-300');
+                        input.classList.replace('border-white/10', 'border-gray-100');
+                        input.classList.replace('placeholder:text-white/10', 'placeholder:text-gray-100');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
