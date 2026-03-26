@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Profile Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #efefef;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #1e1e1e !important;
+            color: #efefef !important;
+        }
+
+        .dark-mode input,
+        .dark-mode textarea {
+            background-color: #2a2a2a !important;
+            color: #efefef !important;
+            border-color: #333 !important;
+        }
+
+        .dark-mode .border-gray-100 {
+            border-color: #333 !important;
+        }
+
+        .dark-mode .bg-gray-50 {
+            background-color: #252525 !important;
+        }
+
+        .dark-mode .text-slate-600 {
+            color: #aaa !important;
+        }
+
+        .dark-mode .text-slate-700 {
+            color: #ccc !important;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen py-10 px-4">
+    <div class="max-w-xl mx-auto space-y-8">
+        <!-- Minimal Header -->
+        <header class="flex justify-between items-center px-2">
+            <h1 class="text-xl font-semibold text-gray-800 dark:text-white">Profile Editor</h1>
+            <div class="flex gap-4">
+                <button id="toggleTheme" class="text-gray-400 hover:text-gray-600 transition-colors"><i
+                        class="fa-solid fa-moon"></i></button>
+                <button id="resetBtn"
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-rose-500 transition-colors">Reset</button>
+            </div>
+        </header>
+
+        <!-- Profile Card Preview (Simple & Focused) -->
+        <section id="profilePreview"
+            class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm transition-all duration-500 text-center">
+            <div class="relative inline-block mb-6 group" onclick="openModal()">
+                <img id="cardImg"
+                    src="https://sm.ign.com/t/ign_nordic/review/p/persona-5-/persona-5-review_htue.1280.jpg"
+                    alt="Avatar"
+                    class="w-24 h-24 rounded-full border-2 border-gray-50 shadow-inner object-cover bg-gray-50 cursor-pointer transition-transform hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/10 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity pointer-events-none">
+                    <i class="fa-solid fa-expand text-white text-xs"></i>
+                </div>
+            </div>
+
+            <h2 id="cardName" class="text-2xl font-bold tracking-tight text-gray-900 mb-1">Anish Chaudhary</h2>
+            <p id="cardRole" class="text-sm font-medium text-indigo-500 mb-4">MERN Stack Developer</p>
+            <p id="cardBio" class="text-sm text-slate-600 mb-8 max-w-xs mx-auto">Focused on building clean, minimalist
+                digital products.</p>
+
+            <div class="space-y-3 pt-6 border-t border-gray-50 dark:border-white/5">
+                <div class="flex items-center justify-center gap-3 text-xs text-slate-700">
+                    <i class="fa-solid fa-envelope opacity-30"></i>
+                    <span id="cardEmail">anish@example.com</span>
+                </div>
+                <div class="flex items-center justify-center gap-3 text-xs text-slate-700">
+                    <i class="fa-solid fa-location-dot opacity-30"></i>
+                    <span id="cardLoc">Kathmandu, Nepal</span>
+                </div>
+            </div>
+
+            <div id="cardSkills" class="mt-6 flex flex-wrap justify-center gap-2">
+                <!-- Skills Rendered Via JS -->
+            </div>
+        </section>
+
+        <!-- Minimal Editor Panel -->
+        <section class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm space-y-6">
+            <div class="space-y-4">
+                <input type="text" id="inputName" placeholder="Full Name"
+                    class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm">
+                <input type="text" id="inputRole" placeholder="Role / Job Title"
+                    class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm">
+                <textarea id="inputBio" placeholder="Short Bio" rows="2"
+                    class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm overflow-hidden"></textarea>
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="inputEmail" placeholder="Email"
+                        class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm">
+                    <input type="text" id="inputLoc" placeholder="Location"
+                        class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm">
+                </div>
+                <input type="text" id="inputImg" placeholder="Avatar Image URL"
+                    class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm">
+                <input type="text" id="inputSkills" placeholder="Skills (comma separated)"
+                    class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:outline-none focus:border-gray-200 transition-all text-sm">
+            </div>
+        </section>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal"
+        class="fixed inset-0 bg-black/40 z-50 hidden flex items-center justify-center p-8 backdrop-blur-sm"
+        onclick="closeModal(event)">
+        <img id="modalImg" src="" alt="Preview"
+            class="max-w-xs w-full  border-4 border-white shadow-2xl transition-transform duration-500 scale-90">
+    </div>
+
+    <script>
+        // DOM Elements
+        const inputs = ['Name', 'Role', 'Bio', 'Email', 'Loc', 'Img', 'Skills'];
+        const elements = {};
+        inputs.forEach(i => {
+            elements[`in${i}`] = document.getElementById(`input${i}`);
+            elements[`out${i}`] = document.getElementById(`card${i}`);
+        });
+        const outSkills = document.getElementById('cardSkills');
+        const preview = document.getElementById('profilePreview');
+
+        const defaults = {
+            Name: 'Anish Chaudhary', Role: 'MERN Stack Developer',
+            Bio: 'Focused on building clean, minimalist digital products.',
+            Email: 'anish@example.com', Loc: 'Kathmandu, Nepal',
+            Img: 'https://sm.ign.com/t/ign_nordic/review/p/persona-5-/persona-5-review_htue.1280.jpg',
+            Skills: 'React, Node, UI/UX'
+        };
+
+        function update() {
+            inputs.forEach(i => {
+                if (i === 'Skills') return;
+                elements[`out${i}`].src ? elements[`out${i}`].src = elements[`in${i}`].value || defaults[i] : elements[`out${i}`].textContent = elements[`in${i}`].value || defaults[i];
+            });
+
+            // Handle Skills
+            const skillList = (elements.inSkills.value || defaults.Skills).split(',').map(s => s.trim()).filter(s => s);
+            outSkills.innerHTML = skillList.map(s => `<span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 text-gray-500 dark:text-gray-400 text-[10px] font-semibold uppercase tracking-wider rounded-full">${s}</span>`).join('');
+        }
+
+        inputs.forEach(i => elements[`in${i}`].addEventListener('input', update));
+        update(); // Initial run
+
+        // Theme
+        const themeBtn = document.getElementById('toggleTheme');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+        });
+
+        // Reset
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            inputs.forEach(i => elements[`in${i}`].value = '');
+            update();
+        });
+
+        // Modal
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const openModal = () => {
+            modalImg.src = elements.outImg.src;
+            modal.classList.remove('hidden');
+            setTimeout(() => modalImg.classList.replace('scale-90', 'scale-100'), 10);
+        };
+        const closeModal = (e) => {
+            if (e && e.target !== modal) return;
+            modalImg.classList.replace('scale-100', 'scale-90');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        };
+    </script>
+</body>
+
+</html>
